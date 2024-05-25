@@ -1,0 +1,166 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1ml5fultgxsh"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_mv2oq"]
+[ext_resource type="PackedScene" uid="uid://ykiljokj3pmp" path="res://Scenes/parallax_background.tscn" id="2_noo4g"]
+[ext_resource type="SystemFont" uid="uid://b7plxcvkxqptr" path="res://Scenes/font_bold.tres" id="3_5pnsj"]
+[ext_resource type="SystemFont" uid="uid://c42u5cwaliytk" path="res://Scenes/font_normal.tres" id="4_ej61t"]
+[ext_resource type="Texture2D" uid="uid://da2qr4l6y7xf1" path="res://textures/UI/Button-Normal.png" id="5_c2na6"]
+[ext_resource type="Texture2D" uid="uid://7j4xq6hsd4po" path="res://textures/UI/Button-Pressed.png" id="6_sxr0o"]
+[ext_resource type="Texture2D" uid="uid://bm4j20pceky1i" path="res://textures/UI/Button-Hover.png" id="7_rx3l8"]
+[ext_resource type="Texture2D" uid="uid://rn0h5xuflsjm" path="res://textures/Base_Ship.png" id="8_qxeca"]
+[ext_resource type="Texture2D" uid="uid://c22vn1fe8dd67" path="res://textures/Star Ship.png" id="9_d1lq1"]
+[ext_resource type="AudioStream" uid="uid://cn1jsm5o7sc34" path="res://Audio/Flagship-menu.wav" id="10_e8jj0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oxjki"]
+line_spacing = 5.0
+font = ExtResource("3_5pnsj")
+font_size = 250
+
+[sub_resource type="LabelSettings" id="LabelSettings_s0y2t"]
+line_spacing = 5.0
+font = ExtResource("4_ej61t")
+font_size = 100
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_mv2oq")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_noo4g")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+clip_contents = true
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1183.0
+
+[node name="Title" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "FLAGSHIP"
+label_settings = SubResource("LabelSettings_oxjki")
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "A godot game made by
+Kessem Quarks and Aurie"
+label_settings = SubResource("LabelSettings_s0y2t")
+horizontal_alignment = 1
+
+[node name="Container" type="Container" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Play" type="TextureButton" parent="Control/VBoxContainer/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("5_c2na6")
+texture_pressed = ExtResource("6_sxr0o")
+texture_hover = ExtResource("7_rx3l8")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Buttons/Play"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 296.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("3_5pnsj")
+theme_override_font_sizes/font_size = 60
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="Control/VBoxContainer/Buttons"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("5_c2na6")
+texture_pressed = ExtResource("6_sxr0o")
+texture_hover = ExtResource("7_rx3l8")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Buttons/Settings"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 296.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("3_5pnsj")
+theme_override_font_sizes/font_size = 60
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="Control/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_c2na6")
+texture_pressed = ExtResource("6_sxr0o")
+texture_hover = ExtResource("7_rx3l8")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Quit"]
+layout_mode = 0
+offset_left = 811.0
+offset_top = 2.0
+offset_right = 1103.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("3_5pnsj")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShipSelect" type="HBoxContainer" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="CruiserButton" type="TextureButton" parent="Control/VBoxContainer/ShipSelect"]
+layout_mode = 2
+texture_normal = ExtResource("8_qxeca")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/ShipSelect/CruiserButton"]
+layout_mode = 0
+offset_left = -269.0
+offset_top = 190.0
+offset_right = -74.0
+offset_bottom = 313.0
+theme_override_fonts/font = ExtResource("4_ej61t")
+theme_override_font_sizes/font_size = 50
+text = "Flagship
+cruiser"
+horizontal_alignment = 1
+
+[node name="Container" type="Container" parent="Control/VBoxContainer/ShipSelect"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Star_ShipButton" type="TextureButton" parent="Control/VBoxContainer/ShipSelect"]
+layout_mode = 2
+texture_normal = ExtResource("9_d1lq1")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/ShipSelect/Star_ShipButton"]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 192.0
+offset_right = 839.0
+offset_bottom = 315.0
+theme_override_fonts/font = ExtResource("4_ej61t")
+theme_override_font_sizes/font_size = 50
+text = "Experimental
+mothership"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_e8jj0")
+volume_db = -25.0
+autoplay = true
+
+[connection signal="pressed" from="Control/VBoxContainer/Buttons/Play" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ShipSelect/CruiserButton" to="." method="_on_cruiser_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ShipSelect/Star_ShipButton" to="." method="_on_star_ship_button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

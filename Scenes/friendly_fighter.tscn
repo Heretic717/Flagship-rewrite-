@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://dylgk38voebv5"]
+
+[ext_resource type="Texture2D" uid="uid://8sa052s2ljwg" path="res://textures/fighter_friend.png" id="1_bs4dh"]
+
+[node name="FriendlyFighter" type="RigidBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(13, 0, -3, 14, -9, 16, -4, 4, -13, 1, -13, -1, -4, -4, -9, -16, -3, -14)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="weapon1" type="Node2D" parent="."]
+position = Vector2(10, 3)
+
+[node name="weapon2" type="Node2D" parent="."]
+position = Vector2(10, -3)
+
+[node name="FriendlyFighterGraph" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_bs4dh")
+
+[node name="thrusterMain" type="Node2D" parent="FriendlyFighterGraph"]
+position = Vector2(-104, 0)
+
+[node name="thruster1" type="Node2D" parent="FriendlyFighterGraph"]
+position = Vector2(-64, 88)
+
+[node name="thruster2" type="Node2D" parent="FriendlyFighterGraph"]
+position = Vector2(-56, 56)
+
+[node name="thruster3" type="Node2D" parent="FriendlyFighterGraph"]
+position = Vector2(-56, -56)
+
+[node name="thruster4" type="Node2D" parent="FriendlyFighterGraph"]
+position = Vector2(-72, -88)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://deahpmfxf4xou"]
+
+[ext_resource type="Texture2D" uid="uid://dlvit1hneikmv" path="res://textures/Turret.png" id="1_h0t3q"]
+[ext_resource type="Script" path="res://Scripts/turret.cs" id="2_7f1dd"]
+
+[node name="Turret" type="Node2D"]
+script = ExtResource("2_7f1dd")
+
+[node name="Turretclock" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="visuals" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_h0t3q")
+
+[node name="Node2D" type="Node2D" parent="visuals"]
+position = Vector2(110, -25)
+
+[node name="Node2D2" type="Node2D" parent="visuals"]
+position = Vector2(110, 25)

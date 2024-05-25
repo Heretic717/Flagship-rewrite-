@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4qak4j8pv4dl"]
+
+[ext_resource type="Texture2D" uid="uid://bcdaqafduaa76" path="res://textures/reticle.png" id="1_8wqbr"]
+[ext_resource type="Script" path="res://Scripts/reticle.cs" id="2_tw1u8"]
+
+[node name="reticle" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8wqbr")
+script = ExtResource("2_tw1u8")

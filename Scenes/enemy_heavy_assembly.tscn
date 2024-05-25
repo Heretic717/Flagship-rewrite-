@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dusopytujsph5"]
+
+[ext_resource type="PackedScene" uid="uid://7lp6te53xfh1" path="res://Scenes/enemy_heavy.tscn" id="1_0ppmt"]
+[ext_resource type="PackedScene" uid="uid://s2xmc3wx0x04" path="res://Scenes/enemy_turret_assembly.tscn" id="2_fa0qg"]
+
+[node name="enemy_heavy_assembly" type="RigidBody2D"]
+collision_mask = 18
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(61, 0, 53, 8, 40, 16, 17, 20, -2, 22, -27, 22, -45, 18, -60, 14, -62, 0, -60, -13, -35, -20, -26, -21, -3, -21, 17, -19, 41, -15)
+
+[node name="EnemyHeavy" parent="." instance=ExtResource("1_0ppmt")]
+
+[node name="thrusterMain" type="Node2D" parent="EnemyHeavy"]
+position = Vector2(-260, 0)
+
+[node name="thruster1" type="Node2D" parent="EnemyHeavy"]
+position = Vector2(-228, 76)
+
+[node name="thruster2" type="Node2D" parent="EnemyHeavy"]
+position = Vector2(-228, -72)
+
+[node name="EnemyTurretAssembly" parent="." instance=ExtResource("2_fa0qg")]

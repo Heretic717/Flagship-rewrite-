@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfjxftgd47guj"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_fighter_AI.cs" id="1_pi3h1"]
+[ext_resource type="Texture2D" uid="uid://b5l2q57r6473v" path="res://textures/fighter_enemy.png" id="1_wkfcb"]
+[ext_resource type="PackedScene" uid="uid://cd6ign8d1bxau" path="res://Effects/RedFireEffect.tscn" id="2_u5yqe"]
+
+[node name="EnemyFighter" type="Area2D" groups=["Enemy"]]
+scale = Vector2(1.5, 1.5)
+collision_mask = 20
+script = ExtResource("1_pi3h1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.063, 0.063)
+polygon = PackedVector2Array(116.402, 0, -95.2381, -137.566, -126.984, 0, -84.6561, 137.566)
+
+[node name="E_Fighter_clock" type="Timer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(14, 0)
+scale = Vector2(0.125, 0.125)
+
+[node name="EnemyFighterGraph" type="Sprite2D" parent="."]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("1_wkfcb")
+
+[node name="thrusterMain" type="Node2D" parent="EnemyFighterGraph"]
+position = Vector2(-112, 0)
+scale = Vector2(5, 5)
+
+[node name="FireEffect" parent="EnemyFighterGraph/thrusterMain" instance=ExtResource("2_u5yqe")]
+
+[node name="thruster1" type="Node2D" parent="EnemyFighterGraph"]
+position = Vector2(-96, 96)
+rotation = -0.785398
+scale = Vector2(3, 3)
+
+[node name="FireEffect" parent="EnemyFighterGraph/thruster1" instance=ExtResource("2_u5yqe")]
+
+[node name="thruster2" type="Node2D" parent="EnemyFighterGraph"]
+position = Vector2(-96, 56)
+scale = Vector2(3, 3)
+
+[node name="FireEffect" parent="EnemyFighterGraph/thruster2" instance=ExtResource("2_u5yqe")]
+
+[node name="thruster3" type="Node2D" parent="EnemyFighterGraph"]
+position = Vector2(-96, -56)
+scale = Vector2(3, 3)
+
+[node name="FireEffect" parent="EnemyFighterGraph/thruster3" instance=ExtResource("2_u5yqe")]
+
+[node name="thruster4" type="Node2D" parent="EnemyFighterGraph"]
+position = Vector2(-96, -96)
+rotation = 0.785398
+scale = Vector2(3, 3)
+
+[node name="FireEffect" parent="EnemyFighterGraph/thruster4" instance=ExtResource("2_u5yqe")]

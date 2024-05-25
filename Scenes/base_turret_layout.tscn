@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp5rn1owy2cxb"]
+
+[ext_resource type="PackedScene" uid="uid://deahpmfxf4xou" path="res://Scenes/turret.tscn" id="1_x2fii"]
+
+[node name="turrets" type="Node2D"]
+
+[node name="Turret" parent="." instance=ExtResource("1_x2fii")]
+position = Vector2(40, -12)
+scale = Vector2(0.25, 0.25)
+
+[node name="Turret2" parent="." instance=ExtResource("1_x2fii")]
+position = Vector2(40, 12)
+scale = Vector2(0.25, 0.25)
+
+[node name="Turret3" parent="." instance=ExtResource("1_x2fii")]
+position = Vector2(-18, 12)
+scale = Vector2(0.25, 0.25)
+
+[node name="Turret4" parent="." instance=ExtResource("1_x2fii")]
+position = Vector2(-18, -12)
+scale = Vector2(0.25, 0.25)

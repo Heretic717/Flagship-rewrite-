@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1cx42ffanf42"]
+
+[ext_resource type="SystemFont" uid="uid://b7plxcvkxqptr" path="res://Scenes/font_bold.tres" id="1_6ab72"]
+[ext_resource type="PackedScene" uid="uid://ykiljokj3pmp" path="res://Scenes/parallax_background.tscn" id="1_6lve1"]
+[ext_resource type="SystemFont" uid="uid://c42u5cwaliytk" path="res://Scenes/font_normal.tres" id="2_hxojr"]
+[ext_resource type="Texture2D" uid="uid://da2qr4l6y7xf1" path="res://textures/UI/Button-Normal.png" id="3_svhc2"]
+[ext_resource type="Texture2D" uid="uid://7j4xq6hsd4po" path="res://textures/UI/Button-Pressed.png" id="4_qq48t"]
+[ext_resource type="Texture2D" uid="uid://bm4j20pceky1i" path="res://textures/UI/Button-Hover.png" id="5_pon1k"]
+
+[sub_resource type="GDScript" id="GDScript_4qlis"]
+script/source = "extends Control
+
+func _ready():
+	$VBoxContainer/Buttons2/Score2.text = str(UserVariables.Score)
+
+func LoadGame():
+	UserVariables.Score = 0
+	get_tree().change_scene_to_file(\"res://Scenes/world.tscn\")
+
+func _on_restart_pressed():
+	LoadGame()
+
+func _on_quit_pressed():
+	get_tree().quit()
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_rxchb"]
+line_spacing = 5.0
+font = ExtResource("1_6ab72")
+font_size = 250
+
+[sub_resource type="LabelSettings" id="LabelSettings_xr0ng"]
+line_spacing = 5.0
+font = ExtResource("2_hxojr")
+font_size = 100
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = SubResource("GDScript_4qlis")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_6lve1")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1183.0
+
+[node name="Game over" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_rxchb")
+horizontal_alignment = 1
+
+[node name="Buttons2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Score" type="Label" parent="VBoxContainer/Buttons2"]
+layout_mode = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_xr0ng")
+horizontal_alignment = 1
+
+[node name="Score2" type="Label" parent="VBoxContainer/Buttons2"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_xr0ng")
+horizontal_alignment = 1
+
+[node name="Container" type="Container" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Restart" type="TextureButton" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("3_svhc2")
+texture_pressed = ExtResource("4_qq48t")
+texture_hover = ExtResource("5_pon1k")
+
+[node name="Label" type="Label" parent="VBoxContainer/Buttons/Restart"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 296.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("1_6ab72")
+theme_override_font_sizes/font_size = 60
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_svhc2")
+texture_pressed = ExtResource("4_qq48t")
+texture_hover = ExtResource("5_pon1k")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Quit"]
+layout_mode = 0
+offset_left = 811.0
+offset_top = 2.0
+offset_right = 1103.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("1_6ab72")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

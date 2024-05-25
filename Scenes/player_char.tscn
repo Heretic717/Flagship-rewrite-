@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://3yyd5oiqlkvp"]
+
+[ext_resource type="Script" path="res://Scripts/player_char_script.cs" id="1_hy8dp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yyyym"]
+radius = 200.0
+
+[node name="PlayerChar" type="Area2D"]
+script = ExtResource("1_hy8dp")
+
+[node name="Attack_Orbit" type="Area2D" parent="." groups=["orbitradius"]]
+collision_layer = 4
+collision_priority = 100.0
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Orbit"]
+shape = SubResource("CircleShape2D_yyyym")
+one_way_collision_margin = 40.2

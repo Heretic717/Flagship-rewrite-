@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cokldgevht08p"]
+
+[ext_resource type="Texture2D" uid="uid://cyxjfb0n6bt75" path="res://textures/Turret_enemy.png" id="1_22ha1"]
+
+[node name="EnemyTurret" type="Node2D"]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="EnemyTurretGraph" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_22ha1")
+
+[node name="Node2D" type="Node2D" parent="EnemyTurretGraph"]
+position = Vector2(36, 0)

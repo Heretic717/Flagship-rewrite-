@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cndba3kxp4yoo"]
+
+[ext_resource type="Script" path="res://Scripts/UserVariables.cs" id="1_dy63l"]
+
+[node name="UserVariables" type="Node2D"]
+script = ExtResource("1_dy63l")

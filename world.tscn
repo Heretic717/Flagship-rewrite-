@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://djfddf2qupyba"]
+
+[ext_resource type="Script" path="res://Scripts/worldStuff.cs" id="1_acdwc"]
+[ext_resource type="Texture2D" uid="uid://duyjc786q2w5x" path="res://textures/Noise.tres" id="2_h2qwh"]
+[ext_resource type="Texture2D" uid="uid://mdrictcnm6qt" path="res://textures/noise_alpha.tres" id="3_6j0yw"]
+[ext_resource type="PackedScene" uid="uid://3yyd5oiqlkvp" path="res://Scenes/player_char.tscn" id="4_7dnjy"]
+[ext_resource type="PackedScene" uid="uid://b4qak4j8pv4dl" path="res://Scenes/reticle.tscn" id="5_qokvn"]
+
+[sub_resource type="Gradient" id="Gradient_6volx"]
+offsets = PackedFloat32Array(0.028021, 0.0805604)
+colors = PackedColorArray(0.709499, 0.70938, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kselv"]
+seed = 1755
+frequency = 0.0426
+fractal_type = 2
+fractal_octaves = 2
+fractal_lacunarity = 0.9
+fractal_gain = -0.185
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_562bx"]
+width = 3840
+height = 2160
+generate_mipmaps = false
+seamless = true
+color_ramp = SubResource("Gradient_6volx")
+noise = SubResource("FastNoiseLite_kselv")
+
+[sub_resource type="Gradient" id="Gradient_nrqvy"]
+offsets = PackedFloat32Array(0.028021, 0.0805604)
+colors = PackedColorArray(0.792157, 0.0901961, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6oj8r"]
+seed = 335
+frequency = 0.0426
+fractal_type = 2
+fractal_octaves = 2
+fractal_lacunarity = 0.9
+fractal_gain = -0.185
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m2m2y"]
+width = 3840
+height = 2160
+generate_mipmaps = false
+seamless = true
+color_ramp = SubResource("Gradient_nrqvy")
+noise = SubResource("FastNoiseLite_6oj8r")
+
+[sub_resource type="Curve2D" id="Curve2D_ni2q7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -596, -359, 0, 0, 0, 0, 599, -340, 0, 0, 0, 0, 597, 339, 0, 0, 0, 0, -588, 351, 0, 0, 0, 0, -598, -358)
+}
+point_count = 5
+
+[node name="World-Main" type="Node2D"]
+script = ExtResource("1_acdwc")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(3840, 2160)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("2_h2qwh")
+stretch_mode = 1
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(3840, 2160)
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("3_6j0yw")
+stretch_mode = 1
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.95, 0.95)
+motion_mirroring = Vector2(3840, 2160)
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = SubResource("NoiseTexture2D_562bx")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(3840, 2160)
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer4"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = SubResource("NoiseTexture2D_m2m2y")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerChar" parent="." instance=ExtResource("4_7dnjy")]
+
+[node name="reticle" parent="." instance=ExtResource("5_qokvn")]
+
+[node name="EnemyTimer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Path2D" type="Path2D" parent="Camera2D"]
+curve = SubResource("Curve2D_ni2q7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Camera2D/Path2D"]
+position = Vector2(-596, -359)
+rotation = 0.0158982
+
+[node name="Node2D" type="Node2D" parent="Camera2D/Path2D/PathFollow2D"]

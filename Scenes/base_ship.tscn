@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cndke8tt721x4"]
+
+[ext_resource type="Texture2D" uid="uid://rn0h5xuflsjm" path="res://textures/Base_Ship.png" id="1_cobe0"]
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_cobe0")

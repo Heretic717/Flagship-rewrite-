@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://2wfedgqn20m"]
+
+[ext_resource type="Texture2D" uid="uid://c22vn1fe8dd67" path="res://textures/Star Ship.png" id="1_8ttmj"]
+
+[node name="Star Ship" type="Sprite2D"]
+position = Vector2(604, 321)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_8ttmj")

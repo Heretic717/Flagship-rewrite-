@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://c04ugnwy72qvl"]
+
+[node name="CharStarCollider" type="CollisionPolygon2D"]
+polygon = PackedVector2Array(3, 62, 14, 34, 41, 47, 46, 42, 33, 14, 62, 4, 62, -3, 33, -14, 46, -41, 40, -46, 14, -33, 3, -62, -4, -62, -15, -33, -41, -46, -47, -41, -34, -14, -63, -3, -63, 4, -34, 14, -47, 42, -41, 47, -14, 34, -4, 63)

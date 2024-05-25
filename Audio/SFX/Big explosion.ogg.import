@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dec8wxiew5j74"
+path="res://.godot/imported/Big explosion.ogg-847c741b193efa93fe8837f5d75d094a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/SFX/Big explosion.ogg"
+dest_files=["res://.godot/imported/Big explosion.ogg-847c741b193efa93fe8837f5d75d094a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

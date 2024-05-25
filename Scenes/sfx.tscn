@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://trftrgbd1s1p"]
+
+[ext_resource type="AudioStream" uid="uid://dec8wxiew5j74" path="res://Audio/SFX/Big explosion.ogg" id="1_l7bt4"]
+[ext_resource type="AudioStream" uid="uid://dtxthd2atcabe" path="res://Audio/SFX/Small explosion.ogg" id="2_b4sml"]
+[ext_resource type="AudioStream" uid="uid://djwg0b1h1efjk" path="res://Audio/SFX/Hit.ogg" id="3_sq8ka"]
+[ext_resource type="AudioStream" uid="uid://caancwngnif7t" path="res://Audio/SFX/Shot sound.ogg" id="4_1qwy7"]
+[ext_resource type="AudioStream" uid="uid://ri7g0yyj5r3h" path="res://Audio/SFX/Spaceship Thruster Sound Effect.mp3" id="5_x7qfe"]
+
+[node name="SFX" type="Node2D"]
+
+[node name="Big explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_l7bt4")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Small explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_b4sml")
+volume_db = 10.0
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sq8ka")
+volume_db = -2.0
+max_polyphony = 4
+bus = &"SFX"
+
+[node name="Shot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1qwy7")
+volume_db = -13.0
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="Thrust" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_x7qfe")
+volume_db = 15.0
+max_polyphony = 10
+bus = &"SFX"

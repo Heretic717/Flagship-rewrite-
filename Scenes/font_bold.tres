@@ -1,0 +1,5 @@
+[gd_resource type="SystemFont" format=3 uid="uid://b7plxcvkxqptr"]
+
+[resource]
+font_names = PackedStringArray("SYN Nova")
+font_weight = 700

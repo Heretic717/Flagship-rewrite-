@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://s2xmc3wx0x04"]
+
+[ext_resource type="PackedScene" uid="uid://cokldgevht08p" path="res://Scenes/enemy_turret.tscn" id="1_mmg2n"]
+
+[node name="EnemyTurretAssembly" type="Node2D"]
+
+[node name="EnemyTurret" parent="." instance=ExtResource("1_mmg2n")]
+position = Vector2(0.999999, 0)
+scale = Vector2(1.7, 1.7)
+
+[node name="EnemyTurret2" parent="." instance=ExtResource("1_mmg2n")]
+position = Vector2(33, 0)
+scale = Vector2(1.7, 1.7)

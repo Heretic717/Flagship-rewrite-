@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://be3ul7dvwqhnq"]
+
+[ext_resource type="Texture2D" uid="uid://dcag6mqc3f5q7" path="res://textures/escort_friendly.png" id="1_i35lx"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.03125, 0.03125)
+polygon = PackedVector2Array(832, 0, 288, -480, 32, -1024, -256, -1280, -320, -480, -672, -224, -736, -64, -832, -64, -832, 96, -736, 96, -672, 256, -320, 480, -256, 1280, 32, 1024, 288, 480)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="weapon1" type="Node2D" parent="."]
+position = Vector2(-1, -22)
+scale = Vector2(0.03125, 0.03125)
+
+[node name="weapon2" type="Node2D" parent="."]
+position = Vector2(-1, 22)
+scale = Vector2(0.03125, 0.03125)
+
+[node name="FriendlyEscort" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_i35lx")
+
+[node name="thrusterMain" type="Node2D" parent="FriendlyEscort"]
+position = Vector2(-104, 0)
+
+[node name="thruster1" type="Node2D" parent="FriendlyEscort"]
+position = Vector2(-44, 128)
+
+[node name="thruster2" type="Node2D" parent="FriendlyEscort"]
+position = Vector2(-48, 80)
+
+[node name="thruster3" type="Node2D" parent="FriendlyEscort"]
+position = Vector2(-48, -80)
+
+[node name="thruster4" type="Node2D" parent="FriendlyEscort"]
+position = Vector2(-44, -124)

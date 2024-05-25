@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://kpopbg3fdn22"]
+
+[ext_resource type="PackedScene" uid="uid://cndke8tt721x4" path="res://Scenes/base_ship.tscn" id="1_yl8kj"]
+[ext_resource type="PackedScene" uid="uid://cuo4ryld56y71" path="res://Effects/BlueFireEffect.tscn" id="2_bk6me"]
+
+[node name="BaseShipAssembly" type="Node2D"]
+
+[node name="base_shipGraph" parent="." instance=ExtResource("1_yl8kj")]
+
+[node name="thrusterMain" type="Node2D" parent="base_shipGraph"]
+position = Vector2(-250, 0)
+scale = Vector2(4, 4)
+
+[node name="FireEffect" parent="base_shipGraph/thrusterMain" instance=ExtResource("2_bk6me")]
+
+[node name="thruster1" type="Node2D" parent="base_shipGraph"]
+position = Vector2(-250, 48)
+scale = Vector2(4, 4)
+
+[node name="FireEffect" parent="base_shipGraph/thruster1" instance=ExtResource("2_bk6me")]
+
+[node name="thruster2" type="Node2D" parent="base_shipGraph"]
+position = Vector2(-250, -48)
+scale = Vector2(4, 4)
+
+[node name="FireEffect" parent="base_shipGraph/thruster2" instance=ExtResource("2_bk6me")]
+
+[node name="thruster3" type="Node2D" parent="base_shipGraph"]
+position = Vector2(-204, 84)
+scale = Vector2(4, 4)
+
+[node name="FireEffect" parent="base_shipGraph/thruster3" instance=ExtResource("2_bk6me")]
+rotation = -1.5708
+
+[node name="thruster4" type="Node2D" parent="base_shipGraph"]
+position = Vector2(-204, -80)
+scale = Vector2(4, 4)
+
+[node name="FireEffect" parent="base_shipGraph/thruster4" instance=ExtResource("2_bk6me")]
+rotation = 1.5708

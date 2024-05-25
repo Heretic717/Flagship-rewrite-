@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnqb1m87s47we"]
+
+[ext_resource type="PackedScene" uid="uid://bhk0cyf00pyqk" path="res://Scenes/hangar.tscn" id="2_14h00"]
+
+[node name="hangars" type="Node2D"]
+position = Vector2(5, 0)
+
+[node name="Hangar" parent="." instance=ExtResource("2_14h00")]
+position = Vector2(8, -8)
+rotation = 1.5708
+scale = Vector2(0.063, 0.063)
+
+[node name="Hangar2" parent="." instance=ExtResource("2_14h00")]
+position = Vector2(-8, 8)
+rotation = 1.5708
+scale = Vector2(0.063, 0.063)
+
+[node name="Hangar3" parent="." instance=ExtResource("2_14h00")]
+position = Vector2(8, 8)
+rotation = 1.5708
+scale = Vector2(0.063, 0.063)
+
+[node name="Hangar4" parent="." instance=ExtResource("2_14h00")]
+position = Vector2(-8, -8)
+rotation = 1.5708
+scale = Vector2(0.063, 0.063)

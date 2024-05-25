@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flagship 0.2", "Flagship 0.2.csproj", "{DAD99CDE-E5C6-441C-90BE-DCD2E06F2E79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAD99CDE-E5C6-441C-90BE-DCD2E06F2E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAD99CDE-E5C6-441C-90BE-DCD2E06F2E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAD99CDE-E5C6-441C-90BE-DCD2E06F2E79}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{DAD99CDE-E5C6-441C-90BE-DCD2E06F2E79}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{DAD99CDE-E5C6-441C-90BE-DCD2E06F2E79}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{DAD99CDE-E5C6-441C-90BE-DCD2E06F2E79}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

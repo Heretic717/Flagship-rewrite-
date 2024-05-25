@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://uhlp0nrr8hqm"]
+
+[ext_resource type="Texture2D" uid="uid://bljxycivk1242" path="res://textures/muzzle_flashes_3.png" id="1_rj4o7"]
+[ext_resource type="Script" path="res://Scripts/muzzle_flashes.cs" id="2_q83bn"]
+
+[node name="MuzzleFlashes3" type="Sprite2D"]
+position = Vector2(8, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_rj4o7")
+script = ExtResource("2_q83bn")
