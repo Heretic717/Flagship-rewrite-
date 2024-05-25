@@ -52,10 +52,10 @@ public partial class player_char_script : Area2D
 
 		AreaEntered += (Area2D body) => _on_Hit(body);
 
-		explode = GetNode("/root/Audio/Sfx").GetChild<AudioStreamPlayer2D>(0);
-		thrust1 = GetNode("/root/Audio/Sfx").GetChild<AudioStreamPlayer2D>(4);
-		thrust2 = GetNode("/root/Audio/Sfx").GetChild<AudioStreamPlayer2D>(4);
-		thrust3 = GetNode("/root/Audio/Sfx").GetChild<AudioStreamPlayer2D>(4);
+		explode = GetNode("/root/Sfx").GetChild<AudioStreamPlayer2D>(0);
+		thrust1 = GetNode("/root/Sfx").GetChild<AudioStreamPlayer2D>(4);
+		thrust2 = GetNode("/root/Sfx").GetChild<AudioStreamPlayer2D>(4);
+		thrust3 = GetNode("/root/Sfx").GetChild<AudioStreamPlayer2D>(4);
 
 		switch (UserVariables.LoadedShip)
 		{ 
@@ -105,6 +105,7 @@ public partial class player_char_script : Area2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		GetParent().GetChild<Camera2D>(4).GlobalPosition = this.GlobalPosition;
 
 		if (health <= 0)
 		{
