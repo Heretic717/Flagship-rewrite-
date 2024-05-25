@@ -202,7 +202,7 @@ public partial class enemy_fighter_AI : Area2D
 		GpuParticles2D deathExplosion = death.Instantiate<GpuParticles2D>();
 		GetTree().Root.AddChild(deathExplosion);
 		deathExplosion.GlobalPosition = GlobalPosition;
-		GetNode<Node>("/root/UserVariables").Set("Score", GetNode<Node>("/root/UserVariables").Get("Score").As<int>() + 100);
+		UserVariables.Score += 100;
 		QueueFree();
 		
 	}

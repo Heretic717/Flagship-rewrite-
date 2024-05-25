@@ -26,15 +26,22 @@ public partial class player_char_script : Area2D
 	PackedScene death = GD.Load<PackedScene>("res://Effects/Explosion_dead.tscn");
 	string[] shipPaths = new string[] { "res://Scenes/base_ship_assembly.tscn", "res://Scenes/star_ship_assembly.tscn" };
 	string[] shapePaths = new string[] { "res://Scenes/char_base_collider.tscn", "res://Scenes/char_star_collider.tscn" };
+	string[] weaponPaths = new string[] { "base", "star" };
 	PackedScene ship;
 	PackedScene collider;
 	Node2D playerShip;
+	PackedScene hangar;
+	PackedScene turret;
+	Node2D turrets;
+	Node2D hangars;
 	CollisionPolygon2D playerCollider;
 	
 	AudioStreamPlayer2D explode;
 	AudioStreamPlayer2D thrust1;
 	AudioStreamPlayer2D thrust2;
 	AudioStreamPlayer2D thrust3;
+
+	healthbar healthbar;
 
 	public float health = 100;
 	public float maxHealth = 100;
@@ -47,6 +54,14 @@ public partial class player_char_script : Area2D
 		playerCollider = collider.Instantiate<CollisionPolygon2D>();
 		AddChild(playerShip);
 		AddChild(playerCollider);
+		hangar = GD.Load<PackedScene>("res://Scenes/" + weaponPaths[UserVariables.LoadedShip] + "_hangar_layout.tscn");
+		turret = GD.Load<PackedScene>("res://Scenes/" + weaponPaths[UserVariables.LoadedShip] + "_turret_layout.tscn");
+		turrets = turret.Instantiate<Node2D>();
+		hangars = hangar.Instantiate<Node2D>();
+		AddChild(turrets);
+		AddChild(hangars);
+
+		healthbar = GetParent().GetChild<Camera2D>(4).GetChild<BoxContainer>(1).GetChild<healthbar>(0);
 
 		Attack_Orbit = GetChild<Area2D>(0);
 
@@ -99,8 +114,9 @@ public partial class player_char_script : Area2D
 				} 
 				break;
 		}
-		
 
+		healthbar.MaxValue = maxHealth;
+		healthbar.Value = health;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -144,6 +160,8 @@ public partial class player_char_script : Area2D
 				}break;
 		}
 		body.QueueFree();
+
+		healthbar.Value = health;
 	}
 
 	private async void On_Death()

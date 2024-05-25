@@ -2,27 +2,11 @@
 
 [ext_resource type="SystemFont" uid="uid://b7plxcvkxqptr" path="res://Scenes/font_bold.tres" id="1_6ab72"]
 [ext_resource type="PackedScene" uid="uid://ykiljokj3pmp" path="res://Scenes/parallax_background.tscn" id="1_6lve1"]
+[ext_resource type="Script" path="res://Scripts/GameOver.cs" id="1_clnl8"]
 [ext_resource type="SystemFont" uid="uid://c42u5cwaliytk" path="res://Scenes/font_normal.tres" id="2_hxojr"]
 [ext_resource type="Texture2D" uid="uid://da2qr4l6y7xf1" path="res://textures/UI/Button-Normal.png" id="3_svhc2"]
 [ext_resource type="Texture2D" uid="uid://7j4xq6hsd4po" path="res://textures/UI/Button-Pressed.png" id="4_qq48t"]
 [ext_resource type="Texture2D" uid="uid://bm4j20pceky1i" path="res://textures/UI/Button-Hover.png" id="5_pon1k"]
-
-[sub_resource type="GDScript" id="GDScript_4qlis"]
-script/source = "extends Control
-
-func _ready():
-	$VBoxContainer/Buttons2/Score2.text = str(UserVariables.Score)
-
-func LoadGame():
-	UserVariables.Score = 0
-	get_tree().change_scene_to_file(\"res://Scenes/world.tscn\")
-
-func _on_restart_pressed():
-	LoadGame()
-
-func _on_quit_pressed():
-	get_tree().quit()
-"
 
 [sub_resource type="LabelSettings" id="LabelSettings_rxchb"]
 line_spacing = 5.0
@@ -39,7 +23,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-script = SubResource("GDScript_4qlis")
+script = ExtResource("1_clnl8")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_6lve1")]
 

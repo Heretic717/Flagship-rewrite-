@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://djfddf2qupyba"]
+[gd_scene load_steps=14 format=3 uid="uid://djfddf2qupyba"]
 
 [ext_resource type="Script" path="res://Scripts/worldStuff.cs" id="1_acdwc"]
 [ext_resource type="Texture2D" uid="uid://duyjc786q2w5x" path="res://textures/Noise.tres" id="2_h2qwh"]
 [ext_resource type="Texture2D" uid="uid://mdrictcnm6qt" path="res://textures/noise_alpha.tres" id="3_6j0yw"]
 [ext_resource type="PackedScene" uid="uid://3yyd5oiqlkvp" path="res://Scenes/player_char.tscn" id="4_7dnjy"]
 [ext_resource type="PackedScene" uid="uid://b4qak4j8pv4dl" path="res://Scenes/reticle.tscn" id="5_qokvn"]
+[ext_resource type="PackedScene" uid="uid://bcgbw6asr10nc" path="res://Scenes/healthbar.tscn" id="6_jreg2"]
 
 [sub_resource type="Gradient" id="Gradient_6volx"]
 offsets = PackedFloat32Array(0.028021, 0.0805604)
@@ -48,7 +49,7 @@ noise = SubResource("FastNoiseLite_6oj8r")
 
 [sub_resource type="Curve2D" id="Curve2D_ni2q7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -596, -359, 0, 0, 0, 0, 599, -340, 0, 0, 0, 0, 597, 339, 0, 0, 0, 0, -588, 351, 0, 0, 0, 0, -598, -358)
+"points": PackedVector2Array(0, 0, 0, 0, -707, -578, 0, 0, 0, 0, 831, -576, 0, 0, 0, 0, 833, 581, 0, 0, 0, 0, -700, 577, 0, 0, 0, 0, -707, -583)
 }
 point_count = 5
 
@@ -99,6 +100,8 @@ stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayerChar" parent="." instance=ExtResource("4_7dnjy")]
+collision_layer = 2
+collision_mask = 8
 
 [node name="reticle" parent="." instance=ExtResource("5_qokvn")]
 
@@ -106,14 +109,30 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
 
 [node name="Path2D" type="Path2D" parent="Camera2D"]
 curve = SubResource("Curve2D_ni2q7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Camera2D/Path2D"]
-position = Vector2(-596, -359)
-rotation = 0.0158982
+position = Vector2(-707, -578)
+rotation = 0.00130039
 
 [node name="Node2D" type="Node2D" parent="Camera2D/Path2D/PathFollow2D"]
+
+[node name="BoxContainer" type="BoxContainer" parent="Camera2D"]
+offset_left = -50.0
+offset_top = 100.0
+offset_right = 50.0
+offset_bottom = 112.0
+alignment = 1
+
+[node name="Healthbar" parent="Camera2D/BoxContainer" instance=ExtResource("6_jreg2")]
+layout_mode = 2
+size_flags_horizontal = 3
