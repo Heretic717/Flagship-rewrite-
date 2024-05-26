@@ -4,7 +4,7 @@ using System;
 public partial class enemy_fighter_AI : Area2D
 {
 
-	public float health = 17f;
+	public float health = 10f;
 	float speed = 3f;
 	Vector2 velocity = Vector2.Zero;
 	public Area2D player;
@@ -145,7 +145,7 @@ public partial class enemy_fighter_AI : Area2D
 	}
 
 	private void hurt() {
-		health -= 1;
+		health -= 2;
 	}
 
 	private void _on_Hit(Area2D body) 

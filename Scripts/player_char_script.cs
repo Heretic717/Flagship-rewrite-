@@ -41,10 +41,18 @@ public partial class player_char_script : Area2D
 	AudioStreamPlayer2D thrust2;
 	AudioStreamPlayer2D thrust3;
 
-	healthbar healthbar;
 
-	public float health = 100;
-	public float maxHealth = 100;
+	private float health = 100;
+	private float maxHealth = 100;
+
+	public float MaxHealth
+	{
+		get { return maxHealth; }
+	}
+	public float Health
+	{
+		get { return health; }
+	}
 
 	public override void _Ready()
 	{
@@ -61,7 +69,6 @@ public partial class player_char_script : Area2D
 		AddChild(turrets);
 		AddChild(hangars);
 
-		healthbar = GetParent().GetChild<Camera2D>(4).GetChild<BoxContainer>(1).GetChild<healthbar>(0);
 
 		Attack_Orbit = GetChild<Area2D>(0);
 
@@ -76,34 +83,34 @@ public partial class player_char_script : Area2D
 		{ 
 			case 0:
 				{
-					thrusterMain = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(0).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster1 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(1).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster2 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(2).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster3 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(3).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster4 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(4).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thrusterMain = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(0).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster1 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(1).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster2 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(2).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster3 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(3).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster4 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(4).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
 
 					accel = 20f;
 
-					maxHealth = 200;
+					maxHealth = 2000;
 					health = maxHealth;
 				}
 				break;
 			case 1:
 				{
-					thruster1 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(0).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster2 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(1).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster3 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(2).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster4 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(3).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster5 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(4).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster6 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(5).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster7 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(6).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
-					thruster8 = GetChild<Node2D>(1).GetChild<Sprite2D>(0).GetChild<Node2D>(7).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster1 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(0).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster2 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(1).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster3 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(2).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster4 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(3).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster5 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(4).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster6 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(5).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster7 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(6).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
+					thruster8 = GetChild<Node2D>(2).GetChild<Sprite2D>(0).GetChild<Node2D>(7).GetChild<Node2D>(0).GetChild<GpuParticles2D>(0);
 
 					AreaEntered += (Area2D body) => _on_Hit(body);
 
 					accel = 10f;
 
-					maxHealth = 300;
+					maxHealth = 3000;
 					health = maxHealth;
 				}
 				break;
@@ -115,13 +122,11 @@ public partial class player_char_script : Area2D
 				break;
 		}
 
-		healthbar.MaxValue = maxHealth;
-		healthbar.Value = health;
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		GetParent().GetChild<Camera2D>(4).GlobalPosition = this.GlobalPosition;
+		//GetParent().GetChild<Camera2D>(4).GlobalPosition = this.GlobalPosition;
 
 		if (health <= 0)
 		{
@@ -152,7 +157,7 @@ public partial class player_char_script : Area2D
 		{
 			case "enemyprojectilesmall":
 				{
-					health -= 10;
+					health -= 15;
 				} break;
 				default:
 				{
@@ -161,7 +166,6 @@ public partial class player_char_script : Area2D
 		}
 		body.QueueFree();
 
-		healthbar.Value = health;
 	}
 
 	private async void On_Death()

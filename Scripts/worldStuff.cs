@@ -15,7 +15,7 @@ public partial class worldStuff : Node2D
 	{
 		player = GetChild<Area2D>(1);
 		
-		spawnPath = GetChild<Camera2D>(4).GetChild<Path2D>(0).GetChild<PathFollow2D>(0);
+		spawnPath = GetChild<Area2D>(1).GetChild<Camera2D>(1).GetChild<Path2D>(0).GetChild<PathFollow2D>(0);
 
 		enemyTimer = GetChild<Timer>(3);
 		enemyTimer.WaitTime = spawnRate;

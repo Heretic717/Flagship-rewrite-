@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://mdrictcnm6qt" path="res://textures/noise_alpha.tres" id="3_6j0yw"]
 [ext_resource type="PackedScene" uid="uid://3yyd5oiqlkvp" path="res://Scenes/player_char.tscn" id="4_7dnjy"]
 [ext_resource type="PackedScene" uid="uid://b4qak4j8pv4dl" path="res://Scenes/reticle.tscn" id="5_qokvn"]
-[ext_resource type="PackedScene" uid="uid://bcgbw6asr10nc" path="res://Scenes/healthbar.tscn" id="6_jreg2"]
+[ext_resource type="PackedScene" uid="uid://co1kyps3a7jyf" path="res://Scenes/hud.tscn" id="6_1qtm6"]
 
 [sub_resource type="Gradient" id="Gradient_6volx"]
 offsets = PackedFloat32Array(0.028021, 0.0805604)
@@ -49,7 +49,7 @@ noise = SubResource("FastNoiseLite_6oj8r")
 
 [sub_resource type="Curve2D" id="Curve2D_ni2q7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -707, -578, 0, 0, 0, 0, 831, -576, 0, 0, 0, 0, 833, 581, 0, 0, 0, 0, -700, 577, 0, 0, 0, 0, -707, -583)
+"points": PackedVector2Array(0, 0, 0, 0, -1101, -766, 0, 0, 0, 0, 1143, -772, 0, 0, 0, 0, 1158, 816, 0, 0, 0, 0, -1098, 816, 0, 0, 0, 0, -1104, -769)
 }
 point_count = 5
 
@@ -103,13 +103,9 @@ metadata/_edit_use_anchors_ = true
 collision_layer = 2
 collision_mask = 8
 
-[node name="reticle" parent="." instance=ExtResource("5_qokvn")]
-
-[node name="EnemyTimer" type="Timer" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+[node name="Camera2D" type="Camera2D" parent="PlayerChar"]
 position_smoothing_enabled = true
+position_smoothing_speed = 100.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.1
@@ -117,22 +113,17 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
-[node name="Path2D" type="Path2D" parent="Camera2D"]
+[node name="Path2D" type="Path2D" parent="PlayerChar/Camera2D"]
 curve = SubResource("Curve2D_ni2q7")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Camera2D/Path2D"]
-position = Vector2(-707, -578)
-rotation = 0.00130039
+[node name="PathFollow2D" type="PathFollow2D" parent="PlayerChar/Camera2D/Path2D"]
+position = Vector2(-1101, -766)
+rotation = -0.00267379
 
-[node name="Node2D" type="Node2D" parent="Camera2D/Path2D/PathFollow2D"]
+[node name="Node2D" type="Node2D" parent="PlayerChar/Camera2D/Path2D/PathFollow2D"]
 
-[node name="BoxContainer" type="BoxContainer" parent="Camera2D"]
-offset_left = -50.0
-offset_top = 100.0
-offset_right = 50.0
-offset_bottom = 112.0
-alignment = 1
+[node name="reticle" parent="." instance=ExtResource("5_qokvn")]
 
-[node name="Healthbar" parent="Camera2D/BoxContainer" instance=ExtResource("6_jreg2")]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="EnemyTimer" type="Timer" parent="."]
+
+[node name="Hud" parent="." instance=ExtResource("6_1qtm6")]
