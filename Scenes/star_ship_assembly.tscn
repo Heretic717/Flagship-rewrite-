@@ -8,49 +8,57 @@
 [node name="Star Ship" parent="." instance=ExtResource("1_ors0c")]
 position = Vector2(0, 0)
 
-[node name="thruster1" type="Node2D" parent="."]
-position = Vector2(-63, 0)
+[node name="thruster1" type="Node2D" parent="Star Ship"]
+position = Vector2(-252, 0)
+scale = Vector2(4, 4)
 
-[node name="FireEffect" parent="thruster1" instance=ExtResource("2_ebnwj")]
+[node name="FireEffect" parent="Star Ship/thruster1" instance=ExtResource("2_ebnwj")]
 
-[node name="thruster2" type="Node2D" parent="."]
-position = Vector2(-44, -44)
+[node name="thruster2" type="Node2D" parent="Star Ship"]
+position = Vector2(-176, -176)
 rotation = 0.785398
+scale = Vector2(4, 4)
 
-[node name="FireEffect" parent="thruster2" instance=ExtResource("2_ebnwj")]
+[node name="FireEffect" parent="Star Ship/thruster2" instance=ExtResource("2_ebnwj")]
 
-[node name="thruster3" type="Node2D" parent="."]
-position = Vector2(0, -62)
+[node name="thruster3" type="Node2D" parent="Star Ship"]
+position = Vector2(0, -248)
 rotation = 1.5708
+scale = Vector2(4, 4)
 
-[node name="FireEffect" parent="thruster3" instance=ExtResource("2_ebnwj")]
+[node name="FireEffect" parent="Star Ship/thruster3" instance=ExtResource("2_ebnwj")]
 
-[node name="thruster4" type="Node2D" parent="."]
-position = Vector2(43, -44)
+[node name="thruster4" type="Node2D" parent="Star Ship"]
+position = Vector2(172, -176)
 rotation = 2.35619
+scale = Vector2(4, 4)
 
-[node name="FireEffect" parent="thruster4" instance=ExtResource("2_ebnwj")]
+[node name="FireEffect" parent="Star Ship/thruster4" instance=ExtResource("2_ebnwj")]
 
-[node name="thruster5" type="Node2D" parent="."]
-position = Vector2(62, 0)
+[node name="thruster5" type="Node2D" parent="Star Ship"]
+position = Vector2(248, 0)
 rotation = 3.14159
+scale = Vector2(4, 4)
 
-[node name="FireEffect" parent="thruster5" instance=ExtResource("2_ebnwj")]
+[node name="FireEffect" parent="Star Ship/thruster5" instance=ExtResource("2_ebnwj")]
 
-[node name="thruster6" type="Node2D" parent="."]
-position = Vector2(43, 45)
+[node name="thruster6" type="Node2D" parent="Star Ship"]
+position = Vector2(172, 180)
 rotation = -2.3562
+scale = Vector2(4, 4)
 
-[node name="FireEffect" parent="thruster6" instance=ExtResource("2_ebnwj")]
+[node name="FireEffect" parent="Star Ship/thruster6" instance=ExtResource("2_ebnwj")]
 
-[node name="thruster7" type="Node2D" parent="."]
-position = Vector2(0, 62)
+[node name="thruster7" type="Node2D" parent="Star Ship"]
+position = Vector2(0, 248)
 rotation = -1.5708
+scale = Vector2(4, 4)
 
-[node name="FireEffect" parent="thruster7" instance=ExtResource("2_ebnwj")]
+[node name="FireEffect" parent="Star Ship/thruster7" instance=ExtResource("2_ebnwj")]
 
-[node name="thruster8" type="Node2D" parent="."]
-position = Vector2(-44, 44)
+[node name="thruster8" type="Node2D" parent="Star Ship"]
+position = Vector2(-176, 176)
 rotation = -0.785398
+scale = Vector2(4, 4)
 
-[node name="FireEffect" parent="thruster8" instance=ExtResource("2_ebnwj")]
+[node name="FireEffect" parent="Star Ship/thruster8" instance=ExtResource("2_ebnwj")]

@@ -7,7 +7,7 @@ public partial class projectile_logic : Area2D
 	public Vector2 velocity = new(0, 0);
 	float speed = 500f;
 	Vector2 startingPos;
-	public float range = .35f;
+	public float range = .40f;
 	float totalMoved;
 	Timer timer;
 
@@ -21,7 +21,7 @@ public partial class projectile_logic : Area2D
 	{
 		startingPos = Position;
 		timer = GetChild<Timer>(2);
-		timer.WaitTime = range + GD.RandRange(-.05, .05);
+		timer.WaitTime = range + GD.RandRange(-.025, .025);
 		timer.Start();
 		timer.Timeout += () => _on_Fizzle();
 

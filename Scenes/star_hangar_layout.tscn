@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bhk0cyf00pyqk" path="res://Scenes/hangar.tscn" id="1_687dc"]
 
-
 [node name="Hangar_Layout" type="Node2D"]
+scale = Vector2(0.25, 0.25)
 
 [node name="Hangar" parent="." instance=ExtResource("1_687dc")]
 position = Vector2(-114, -112)

@@ -2,20 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://deahpmfxf4xou" path="res://Scenes/turret.tscn" id="1_ap5fy"]
 
-
 [node name="Turret_Layout" type="Node2D"]
+scale = Vector2(0.2, 0.2)
 
 [node name="Turret" parent="." instance=ExtResource("1_ap5fy")]
 position = Vector2(0, -212)
 rotation = -1.5708
+scale = Vector2(1.2, 1.2)
 
 [node name="Turret2" parent="." instance=ExtResource("1_ap5fy")]
 position = Vector2(0, 212)
 rotation = 1.5708
+scale = Vector2(1.2, 1.2)
 
 [node name="Turret3" parent="." instance=ExtResource("1_ap5fy")]
 position = Vector2(212, 0)
+scale = Vector2(1.2, 1.2)
 
 [node name="Turret4" parent="." instance=ExtResource("1_ap5fy")]
 position = Vector2(-212, 0)
 rotation = 3.14159
+scale = Vector2(1.2, 1.2)
